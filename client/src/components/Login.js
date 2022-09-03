@@ -72,6 +72,7 @@ function Login() {
           value={credential.username}
           onChange={handleChange}
           autoComplete="off"
+          autoFocus="true"
         />
         <br />
         <TextField
