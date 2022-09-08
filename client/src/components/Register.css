@@ -1,0 +1,14 @@
+.loginLefts {
+  flex: 5;
+  /* background-color: rgb(168, 140, 194); */
+  background-image: url("../images/register.png");
+}
+.loginRights {
+  background-color: rgb(168, 140, 194);
+  /* background-image: url("../images/back.jpg"); */
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+  align-items: center;
+  justify-content: center;
+}

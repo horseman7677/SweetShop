@@ -1,0 +1,11 @@
+.toolBar {
+  display: flex;
+}
+.toolBarName {
+  flex: 8;
+}
+.toolBarWelcome {
+  display: flex;
+  flex: 1;
+  justify-content: space-evenly;
+}
