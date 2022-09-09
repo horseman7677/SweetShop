@@ -2,6 +2,8 @@
   display: flex;
 }
 .toolBarName {
+  display: flex;
+  /* justify-content: space-evenly; */
   flex: 8;
 }
 .toolBarWelcome {

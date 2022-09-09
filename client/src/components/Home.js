@@ -14,7 +14,7 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./Home.css";
 
 function Home(props) {
@@ -55,7 +55,23 @@ function Home(props) {
         <AppBar color="secondary" position="sticky">
           <Toolbar className="toolBar">
             <div className="toolBarName">
-              <Typography>Sweets Shop</Typography>
+              <Typography fontSize={25} fontFamily="fantasy">
+                Aarvi Food Junction
+              </Typography>
+              <Link
+                to="/items"
+                style={{
+                  textDecoration: "none",
+                  textAlign: "center",
+                  fontSize: "20px",
+                  marginTop: "4px",
+                  marginLeft: "8px",
+                  color: "whitesmoke",
+                  fontFamily: "cursive",
+                }}
+              >
+                Items
+              </Link>
             </div>
             <div>
               <Button variant="contained" color="primary" onClick={bill}>
