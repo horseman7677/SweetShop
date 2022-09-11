@@ -1,33 +1,31 @@
-.mainLogin{
-    height: 100vh;
-    position: relative;
-    display: flex;
-    
+.mainLogin {
+  height: 100vh;
+  position: relative;
+  display: flex;
 }
-.loginLeft{
-    flex: 5;
-    /* background-color: rgb(168, 140, 194); */
-    background-image: url("../images/login.png");
-    
+.loginLeft {
+  flex: 5;
+  /* background-color: rgb(168, 140, 194); */
+  background-image: url("../images/login.png");
+  background-repeat: no-repeat;
+  background-size: auto;
 }
-.loginRight{
-    background-color: rgb(168, 140, 194);
-    /* background-image: url("../images/back.jpg"); */
-    display: flex;
-    flex-direction: column;
-    flex: 3;
-    align-items: center;
-    justify-content: center;
-
+.loginRight {
+  background-color: rgb(168, 140, 194);
+  /* background-image: url("../images/back.jpg"); */
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+  align-items: center;
+  justify-content: center;
 }
-.help{
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    
+.help {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.link{
-    margin-left: 5px;
-    text-decoration: none;
+.link {
+  margin-left: 5px;
+  text-decoration: none;
 }

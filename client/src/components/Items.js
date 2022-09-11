@@ -25,7 +25,7 @@ const columns = [
 ];
 let rows = [];
 
-function Items() {
+function Items(props) {
   const [open, setOpen] = useState(false);
   const [data, setData] = useState(field);
   const [items, setItems] = useState();
@@ -51,6 +51,7 @@ function Items() {
       );
       //console.log(clean);
       rows = clean;
+      // props.onSubmit(rows);
     });
   }, []);
 
@@ -68,7 +69,7 @@ function Items() {
       [name]: value,
     });
   };
-
+  console.log(items);
   return (
     <>
       <div>
@@ -110,7 +111,6 @@ function Items() {
           checkboxSelection
         />
       </div>
-
       <Dialog
         maxWidth="xl"
         open={open}
