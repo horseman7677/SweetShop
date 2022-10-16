@@ -123,7 +123,7 @@ function Items(props) {
         </AppBar>
       </div>
       <div>
-        <Typography align="center">here you can required items</Typography>
+        <Typography align="center">here you can add required items which reflact in home screen</Typography>
       </div>
       <div style={{ height: 650, width: "100%" }}>
         <DataGrid
