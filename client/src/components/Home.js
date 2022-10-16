@@ -15,7 +15,6 @@ import {
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./Home.css";
-import Items from "../components/Items";
 import axios from "axios";
 
 function Home() {
@@ -80,10 +79,10 @@ function Home() {
                 i.item === "samosa"
                   ? samosa
                   : "" || i.item === "aalochop"
-                  ? aalochop
-                  : "" || i.item === "jalebi"
-                  ? jalebi
-                  : ""
+                    ? aalochop
+                    : "" || i.item === "jalebi"
+                      ? jalebi
+                      : ""
               }
               label={i.item}
               onChange={(e) => {
@@ -108,11 +107,10 @@ function Home() {
     <>
       <div className="appBar">
         <AppBar color="secondary" position="sticky">
+
           <Toolbar className="toolBar">
+
             <div className="toolBarName">
-              <Typography fontSize={25} fontFamily="fantasy">
-                Aarvi Food Junction
-              </Typography>
               <Link
                 to="/items"
                 style={{
@@ -122,12 +120,28 @@ function Home() {
                   marginTop: "4px",
                   marginLeft: "8px",
                   color: "whitesmoke",
-                  fontFamily: "cursive",
                 }}
               >
-                Items
+                items
+              </Link>
+
+              <Link to="/dailyUpdate" style={{
+                textDecoration: "none",
+                textAlign: "center",
+                fontSize: "20px",
+                marginTop: "4px",
+                marginLeft: "8px",
+                color: "whitesmoke",
+              }}>update
               </Link>
             </div>
+            
+            <div className="toolbarBrand">
+              <Typography fontSize={25} fontFamily="fantasy">
+                Aarvi Food Junction
+              </Typography>
+            </div>
+
             <div>
               <Button variant="contained" color="primary" onClick={bill}>
                 bill
@@ -136,15 +150,17 @@ function Home() {
                 reset
               </Button>
             </div>
-            <div className="toolBarWelcome">
-              <Typography>Welcome</Typography>
-              <Typography>{name}</Typography>
-            </div>
+
+            {/* <div className="toolBarWelcome">
+              <Typography>Welcome :</Typography>
+              <Typography>under dev</Typography>
+            </div> */}
           </Toolbar>
         </AppBar>
 
         <div>{renderData(item)}</div>
       </div>
+
       <Dialog
         maxWidth="xl"
         open={open}

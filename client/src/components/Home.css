@@ -1,11 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap");
+
 .toolBar {
   display: flex;
 }
 .toolBarName {
   display: flex;
-  /* justify-content: space-evenly; */
-  flex: 8;
+  /* justify-content: space-between; */
+  flex: 4;
+  font-family: "Jost", sans-serif;
+  font-weight: bold;
 }
+
+.toolbarBrand {
+  display: flex;
+  flex: 5;
+}
+
 .toolBarWelcome {
   display: flex;
   flex: 1;

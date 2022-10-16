@@ -14,6 +14,9 @@ app.use("/auth", userRouter);
 const itemsRouter = require("./routes/Items");
 app.use("/items", itemsRouter);
 
+const updateRouter = require("./routes/Updates")
+app.use("/update", updateRouter)
+
 db.sequelize.sync().then(() => {
   app.listen(PORT, () => {
     console.log(`server is running on port ${PORT}`);

@@ -26,12 +26,16 @@ const columns = [
 let rows = [];
 
 function Items(props) {
+  
   const [open, setOpen] = useState(false);
+  
   const [data, setData] = useState(field);
   const [items, setItems] = useState();
 
   console.log(data);
+
   useEffect(() => {
+    
     axios.get("http://localhost:3001/items").then((res) => {
       setItems(res.data);
       console.log(res.data.length);
@@ -69,7 +73,9 @@ function Items(props) {
       [name]: value,
     });
   };
-  console.log(items);
+
+  //console.log(items);
+
   return (
     <>
       <div>
@@ -91,7 +97,21 @@ function Items(props) {
                   fontFamily: "cursive",
                 }}
               >
-                Home
+                home
+              </Link>
+              <Link
+                to="/dailyUpdate"
+                style={{
+                  textDecoration: "none",
+                  textAlign: "center",
+                  fontSize: "20px",
+                  marginTop: "4px",
+                  marginLeft: "8px",
+                  color: "whitesmoke",
+                  fontFamily: "cursive",
+                }}
+              >
+                update
               </Link>
             </div>
             <div>
@@ -102,6 +122,7 @@ function Items(props) {
           </Toolbar>
         </AppBar>
       </div>
+      
       <div style={{ height: 650, width: "100%" }}>
         <DataGrid
           rows={rows}
