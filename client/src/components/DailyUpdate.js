@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Typography } from '@mui/material'
+import { AppBar, Button, Dialog, DialogActions, DialogContent, DialogTitle, MenuItem, Select, TextField, Toolbar, Typography } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
@@ -30,11 +30,14 @@ const filterDate = (date) => {
     //console.log(extractDate);
     return extractDate
 }
-
+//------------------------------------------------------------------------------------------------------------------------------------------
 function DailyUpdate() {
 
     const [update, setUpdate] = useState()
+    const [open, setOpen] = useState(false);
+    const [data, setData] = useState(field);
 
+    console.log(data);
     useEffect(() => {
 
         axios.get("http://localhost:3001/update").then((res) => {
@@ -60,6 +63,22 @@ function DailyUpdate() {
             rows = clean;
         })
     }, [])
+
+    const add = () => {
+        setOpen(true);
+    };
+
+    const handleChange = (e) => {
+        e.preventDefault();
+
+        const { name, value } = e.target;
+
+        setData({
+            ...data,
+            [name]: value,
+        });
+    };
+
 
     return (
         <>
@@ -100,14 +119,20 @@ function DailyUpdate() {
                                 Items
                             </Link>
                         </div>
-
+                        <div>
+                            <Button variant="contained" color="primary" onClick={add}>
+                                Add
+                            </Button>
+                        </div>
                     </Toolbar>
                 </AppBar>
                 <div>
 
                 </div>
             </div>
-
+            <div>
+                <Typography align="center">here you can update daily expenditure</Typography>
+            </div>
             <div style={{ height: 650, width: "100%" }}>
                 <DataGrid
                     rows={rows}
@@ -117,6 +142,70 @@ function DailyUpdate() {
                     checkboxSelection
                 />
             </div>
+
+            <Dialog
+                maxWidth="xl"
+                open={open}
+                onClose={() => {
+                    setOpen(false);
+                }}
+            >
+                <DialogTitle>Add Items</DialogTitle>
+
+                <DialogContent>
+                    <TextField
+                        id="outlined-basic"
+                        label="Product"
+                        variant="filled"
+                        name="product"
+                        value={data.product}
+                        onChange={handleChange}
+                    />
+                    <TextField
+                        id="outlined-basic"
+                        label="Quantity"
+                        type="number"
+                        variant="filled"
+                        name="quantity"
+                        value={data.quantity}
+                        onChange={handleChange}
+                    />
+                    <Select
+                        labelId="demo-simple-select-filled-label"
+                        id="demo-simple-select-filled"
+                        name="unit"
+                        value={data.unit}
+                        onChange={handleChange}
+                    >
+                        <MenuItem value={"kg"}>Kg</MenuItem>
+                        <MenuItem value={"gram"}>Gram</MenuItem>
+                        <MenuItem value={"piece"}>Piece</MenuItem>
+
+                    </Select>
+                </DialogContent>
+                <DialogActions>
+                    <Button
+                        onClick={() => {
+                            // alert("saved");
+                            axios.post("http://localhost:3001/update", data).then(() => {
+                                alert("Items added");
+                                setData(field);
+                                setOpen(false);
+                            });
+                        }}
+                    >
+                        save
+                    </Button>
+                    <Button
+                        onClick={() => {
+                            setData(field);
+                            setOpen(false);
+                        }}
+                    >
+                        cencal
+                    </Button>
+                </DialogActions>
+            </Dialog>
 
         </>
     )

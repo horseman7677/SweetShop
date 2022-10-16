@@ -26,16 +26,16 @@ const columns = [
 let rows = [];
 
 function Items(props) {
-  
+
   const [open, setOpen] = useState(false);
-  
+
   const [data, setData] = useState(field);
   const [items, setItems] = useState();
 
   console.log(data);
 
   useEffect(() => {
-    
+
     axios.get("http://localhost:3001/items").then((res) => {
       setItems(res.data);
       console.log(res.data.length);
@@ -122,7 +122,9 @@ function Items(props) {
           </Toolbar>
         </AppBar>
       </div>
-      
+      <div>
+        <Typography align="center">here you can required items</Typography>
+      </div>
       <div style={{ height: 650, width: "100%" }}>
         <DataGrid
           rows={rows}
